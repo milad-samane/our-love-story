@@ -10,6 +10,7 @@ const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(
 
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/our-love-story/' : '/',
+  base: '/',
   plugins,
   resolve: {
     alias: {
