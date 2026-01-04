@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -43,39 +44,39 @@
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
+  --primary: oklch(0.58 0.12 15.5);
+  --primary-foreground: oklch(0.98 0.001 0);
+  --sidebar-primary: oklch(0.58 0.12 15.5);
+  --sidebar-primary-foreground: oklch(0.98 0.001 0);
+  --chart-1: oklch(0.65 0.15 20);
+  --chart-2: oklch(0.58 0.12 15.5);
+  --chart-3: oklch(0.52 0.1 12);
+  --chart-4: oklch(0.48 0.08 10);
+  --chart-5: oklch(0.44 0.06 8);
+  --radius: 0.5rem;
+  --background: oklch(0.97 0.002 70);
+  --foreground: oklch(0.25 0.01 65);
+  --card: oklch(0.98 0.001 0);
+  --card-foreground: oklch(0.25 0.01 65);
+  --popover: oklch(0.98 0.001 0);
+  --popover-foreground: oklch(0.25 0.01 65);
+  --secondary: oklch(0.65 0.15 20);
+  --secondary-foreground: oklch(0.98 0.001 0);
+  --muted: oklch(0.92 0.004 70);
+  --muted-foreground: oklch(0.55 0.02 65);
+  --accent: oklch(0.65 0.15 20);
+  --accent-foreground: oklch(0.98 0.001 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  --border: oklch(0.92 0.004 70);
+  --input: oklch(0.92 0.004 70);
+  --ring: oklch(0.58 0.12 15.5);
+  --sidebar: oklch(0.98 0.001 0);
+  --sidebar-foreground: oklch(0.25 0.01 65);
+  --sidebar-accent: oklch(0.65 0.15 20);
+  --sidebar-accent-foreground: oklch(0.98 0.001 0);
+  --sidebar-border: oklch(0.92 0.004 70);
+  --sidebar-ring: oklch(0.58 0.12 15.5);
 }
 
 .dark {
@@ -118,7 +119,26 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    @apply text-5xl font-bold tracking-tight;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    @apply text-4xl font-semibold tracking-tight;
+  }
+  h3 {
+    font-family: 'Playfair Display', serif;
+    @apply text-2xl font-semibold;
+  }
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+  .font-serif-accent {
+    font-family: 'Cormorant Garamond', serif;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -134,24 +154,11 @@
 }
 
 @layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem;
     padding-right: 1rem;
   }
 
@@ -162,16 +169,42 @@
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem; /* 32px - desktop padding */
+      padding-left: 2rem;
       padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
+      max-width: 1280px;
+    }
+  }
+
+  .romantic-frame {
+    @apply rounded-sm shadow-lg border overflow-hidden;
+    border-color: rgba(201, 169, 163, 0.2);
+    box-shadow: 0 10px 40px rgba(201, 169, 163, 0.15);
+  }
+
+  .section-divider {
+    @apply h-1 my-12 md:my-20 bg-gradient-to-r from-transparent via-primary to-transparent;
+    opacity: 0.3;
+  }
+
+  .fade-in {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }
