@@ -40,8 +40,8 @@ export default function Home() {
 
   const photos = [
     {
-      src: "/images/decorative-roses.jpg",
-      label: "Roses",
+      src: "/images/first_date_location.png",
+      label: "First Date",
     },
     {
       src: "/images/photo_2026-01-05_12-11-38.jpg",
@@ -104,7 +104,7 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/hero-romantic-1.jpg')",
+            backgroundImage: "url('/images/hero-romantic-1.png')",
             backgroundAttachment: "fixed",
           }}
         >
